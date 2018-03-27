@@ -2,19 +2,71 @@
 <html>
 <head>
   <title>BANDTER</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  <link type="text/css" rel="stylesheet" href="css/homepage.css" />
 </head>
 <body>
-  <div class="container">
-    <h1></h1>
-    <button class="btn btn-primary" id="logout-btn">Logout</button>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="homepage.html">Bandter<span class="sr-only">(current)</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Browse Shows</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Add Show</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Bands</a>
+        </li>
+      </ul>
+
+      <div class="welcome-name"></div>
+
+      <a class="nav-link" href="#">Account</a>
+      <form class="navbar-form navbar-left" role="logout">
+        <button class="btn btn-primary" id="logout-btn">Logout</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container featured-shows-div">
+
+    <h4>Featured Shows</h4>
+
+    <div id="featuredShowsCarousel" class="carousel slide featured-shows" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="#"><img class="d-block w-100" src="img/featured1.jpg" alt="Featured Show One"></a>
+        </div>
+        <div class="carousel-item">
+          <a href="#"><img class="d-block w-100" src="img/featured2.jpg" alt="Featured Show Two"></a>
+        </div>
+        <div class="carousel-item">
+          <a href="#"><img class="d-block w-100" src="img/featured3.jpg" alt="Featured Show Three"></a>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#featuredShowsCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#featuredShowsCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="/dpd.js"></script>
   <script type="text/javascript">
     dpd.users.me(function(user) {
       if (user) {
-        $("h1").text("Welcome, " + user.username + "!");
+        $(".welcome-name").text("Welcome, " + user.username + "!");
       } else {
         location.href = "/";
       }
@@ -26,5 +78,10 @@
       });
     });
   </script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
