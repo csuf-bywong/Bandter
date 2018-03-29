@@ -60,7 +60,38 @@
         location.href = "/";
       });
     });
+    
+  var currentdate = new Date();
+  var datetime = "Last Sync: " + (currentdate.getMonth()+1) + "/"
+                + currentdate.getDate() + "/"
+                + currentdate.getFullYear() + " @ "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+  console.log(datetime);
 
   </script>
 </body>
 </html>
+<!--THERE ARE 2 DATABASES... THIS ONE IS FOR THE COMMENTS DATABASE
+  dpd.comments.post({"user":"foobar","rating":3,"comment":"foobar","datetime":"foobar","showID":"foobar"}, function(result, err) {
+  if(err) return console.log(err);
+  console.log(result, result.id);
+});
+for the stuff above... "user" string is going to be the current user which is dpd.users.me
+rating is any integer between 1 and 5 (1 lowest 5 highest)
+comment is the actual comment string user types out on the shows page
+datetime can be retrieved using the datetime script i wrote at the top of this page
+showID is the unique ID given to each individual show. I can't find a way to search through the database for unique id's so for now the showID will be showName which is a string variable in the "shows" dpd database...
+Matt update your form to make the user input a showName that we can use for showID.
+
+-->
+<!--THIS ONE IS FOR THE SHOWS DATABASE
+dpd.shows.post({"showLinks":"foobar","showName":"foobar"}, function(result, err) {
+  if(err) return console.log(err);
+  console.log(result, result.id);
+});
+for the stuff above... "showLinks" is a string url to the page for a particular showName
+showName is a string which is the name of the show to be listed on the browse shows page
+
+-->
