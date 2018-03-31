@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Bandter login form</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
   <style type="text/css">
-   body { background: #5bc0de !important; }
-</style>
-<style type="text/css">
- body h1 { color:red;}
-</style>
+    body {
+      background: #5bc0de !important;
+    }
+  </style>
+  <style type="text/css">
+    body h1 {
+      color: red;
+    }
+  </style>
 </head>
+
 <body>
   <div class="container">
-  	<h1><strong>Login</strong></h1>
-  	<form>
+    <h1><strong>Login</strong></h1>
+    <form>
       <label for="username" class="text-dark"><strong><u>Username:</u></strong></label>
       <input type="text" id="username" />
       <label for="password"><strong><u>Password:</u></strong></label>
@@ -35,7 +41,10 @@
       var username = $("#username").val();
       var password = $("#password").val();
 
-      dpd.users.login({username: username, password: password}, function(session, error) {
+      dpd.users.login({
+        username: username,
+        password: password
+      }, function(session, error) {
         if (error) {
           alert(error.message);
         } else {
@@ -47,4 +56,5 @@
     });
   </script>
 </body>
+
 </html>
