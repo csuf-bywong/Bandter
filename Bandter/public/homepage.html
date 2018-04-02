@@ -23,13 +23,13 @@
     <p>Otherwise, you can add a show by clicking <a href="addShow.html">Add Show</a>. We'll get around to adding it ASAP!</p>
   </div>
 
-<!-- Entire container holding the carousel and the title -->
+  <!-- Entire container holding the carousel and the title -->
   <div class="container featured-shows-div">
 
     <h4>Featured Shows</h4>
 
     <div id="featuredShowsCarousel" class="carousel slide featured-shows" data-ride="carousel">
-      <div class="carousel-inner">
+      <div class="carousel-inner" id="inner">
         <div class="carousel-item active">
           <!-- This is where the images are being placed in the code -->
           <a href="#"><img class="d-block w-100" src="img/featured1.jpg" alt="Featured Show One"></a>
@@ -53,13 +53,17 @@
     </div>
   </div>
 
+  <div id="test"></div>
+
   <script type="text/javascript" src="/dpd.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!--
   <script src="scripts/remotedatastore.js" charset="utf-8"></script>
   <script src="scripts/carousel.js" charset="utf-8"></script>
   <script src="scripts/main.js" charset="utf-8"></script>
+-->
   <script type="text/javascript">
     $(function() {
       $("#navbar").load("nav.html");
@@ -87,6 +91,33 @@
       currentdate.getMinutes() + ":" +
       currentdate.getSeconds();
     console.log(datetime);
+
+var myarray = [];
+    // getting all the objects in shows collection
+    dpd.shows.get({category: "imageURL"}, function (result, err) {
+      if (err) return console.log(err);
+      console.log(result);
+      // store only imageURL string of the objects into array result/myarray
+      for (var i = 0; i < result.length; i++) {
+        myarray.push(result[i].imageURL); // kinda redundant but whatevs
+        var idiv = document.createElement("div");
+        idiv.className = "carousel-item";
+        var elem = document.createElement("img");
+        elem.className = "d-block w-100";
+        elem.src = myarray[i];
+        var ilink = document.createElement("a");
+        ilink.href = "#";
+        ilink.appendChild(elem);
+        idiv.appendChild(ilink);
+        //idiv.appendChild(elem);
+        document.getElementById("inner").appendChild(idiv);
+        //document.getElementById("featuredShowsCarousel").appendChild(elem);
+        //$("#carousel-item").append("<div class=\"carousel-item\">");
+        //$("#carousel-item").append("<a href=\"#\"><img src='" + myarray + "' alt='feautured image'></div>");
+      }
+      console.log(myarray);
+    });
+
   </script>
 </body>
 

@@ -31,18 +31,21 @@
     // declare variables that make up a carousel item, which is only the image url?
     // then constructor will append them together into a subtree of DOM elements
     // Carousel takes the subtree and appends it to page's DOM tree as a child of [class="carousel-item"]
+    /*
     var $div = $("<div></div>", {
       "class": "carousel-item"
     });
     var $label = $("<label></label>");
-    var $carousel-item = $("<img>", {
+    var $item = $("<img />", {
       type: "carousel-item",
       value: shows.imageURL
     });
-    $label.append($carousel-item);
+    $label.append($item);
     $div.append(label);
 
     this.$element = $div;
+    */
+    $("carousel-item").prepend($("<img id=\"the img\" src =\"img/featured3.jpg"));
   }
 
   App.Carousel = Carousel;

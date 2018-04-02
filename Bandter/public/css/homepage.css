@@ -21,11 +21,9 @@
 .carousel img {
   height: 700px;
   width: auto;
-  size: contain;
 }
 
 .featured-shows {
-  size: contain;
   margin: 0 auto;
   width: 100%;
 }
