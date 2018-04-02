@@ -81,10 +81,10 @@
 
 var myarray = [];
     // getting all the objects in shows collection
-    dpd.shows.get({category: "imageURL"}, function (result, err) {
+    dpd.shows.get( function (result, err) {
       if (err) return console.log(err);
       console.log(result);
-      // store only imageURL string of the objects into array result/myarray
+      // store only imageURL string of the objects into array myarray
       for (var i = 0; i < result.length; i++) {
         myarray.push(result[i].imageURL); // kinda redundant but whatevs
         var idiv = document.createElement("div"); // dynamically create a div element
@@ -97,7 +97,7 @@ var myarray = [];
         elem.className = "d-block w-100";
         elem.src = myarray[i];
         var ilink = document.createElement("a"); // dynamically create a link element
-        ilink.href = "#";
+        ilink.href = "displayShow.html?id=" + result[i].id;
         ilink.appendChild(elem); // stuff <img> between <a> </a>
         idiv.appendChild(ilink); // stuff ^ between <div> </div>
         document.getElementById("inner").appendChild(idiv); // stuff this code into carousel
