@@ -59,11 +59,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <!--
-  <script src="scripts/remotedatastore.js" charset="utf-8"></script>
-  <script src="scripts/carousel.js" charset="utf-8"></script>
-  <script src="scripts/main.js" charset="utf-8"></script>
--->
   <script type="text/javascript">
     $(function() {
       $("#navbar").load("nav.html");
@@ -100,20 +95,16 @@ var myarray = [];
       // store only imageURL string of the objects into array result/myarray
       for (var i = 0; i < result.length; i++) {
         myarray.push(result[i].imageURL); // kinda redundant but whatevs
-        var idiv = document.createElement("div");
-        idiv.className = "carousel-item";
-        var elem = document.createElement("img");
+        var idiv = document.createElement("div"); // dynamically create a div element
+        idiv.className = "carousel-item"; // assign class it will belong to
+        var elem = document.createElement("img"); // dynamically create a img element
         elem.className = "d-block w-100";
         elem.src = myarray[i];
-        var ilink = document.createElement("a");
+        var ilink = document.createElement("a"); // dynamically create a link element
         ilink.href = "#";
-        ilink.appendChild(elem);
-        idiv.appendChild(ilink);
-        //idiv.appendChild(elem);
-        document.getElementById("inner").appendChild(idiv);
-        //document.getElementById("featuredShowsCarousel").appendChild(elem);
-        //$("#carousel-item").append("<div class=\"carousel-item\">");
-        //$("#carousel-item").append("<a href=\"#\"><img src='" + myarray + "' alt='feautured image'></div>");
+        ilink.appendChild(elem); // stuff <img> between <a> </a>
+        idiv.appendChild(ilink); // stuff ^ between <div> </div>
+        document.getElementById("inner").appendChild(idiv); // stuff this code into carousel
       }
       console.log(myarray);
     });
